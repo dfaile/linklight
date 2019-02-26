@@ -8,6 +8,7 @@
 
     - name: CREATE INVENTORY
       tower_inventory:
+        tower_verify_ssl: no
         name: "Workshop Inventory"
         organization: Default
         tower_username: admin
@@ -16,6 +17,7 @@
 
     - name: ADD CONTROL HOST INTO TOWER
       tower_host:
+        tower_verify_ssl: no
         name: "{{ inventory_hostname }}"
         inventory: "Workshop Inventory"
         tower_username: admin
@@ -29,6 +31,7 @@
 
     - name: ADD REPO INTO TOWER - PROJECT
       tower_project:
+        tower_verify_ssl: no
         name: "Workshop Project"
         organization: "Default"
         scm_type: git
@@ -40,6 +43,7 @@
 ## make sure ansible_user corresponds to your student number
     - name: ADD CREDENTIAL INTO TOWER
       tower_credential:
+        tower_verify_ssl: no
         name: Workshop Credential
         ssh_key_data: "/home/{{ansible_user}}/.ssh/aws-private.pem"
         kind: ssh
@@ -57,6 +61,7 @@
 
     - name: ADD HOST INTO TOWER
       tower_host:
+        tower_verify_ssl: no
         name: "{{ inventory_hostname }}"
         inventory: "Workshop Inventory"
         tower_username: admin
